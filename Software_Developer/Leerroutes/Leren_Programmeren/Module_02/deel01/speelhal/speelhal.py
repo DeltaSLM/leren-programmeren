@@ -11,4 +11,4 @@ vrtotaal = mensen*vr
 
 totaalprijs = entree+vrtotaal
 
-print(f"U totaalprijs van vandaag komt op {totaalprijs:.2f} euro.")
+print(f"Dit geweldige dagje-uit met {mensen} mensen in de Speelhal met {minuten_totaal} minuten VR kost je maar {totaalprijs:.2f} euro")
