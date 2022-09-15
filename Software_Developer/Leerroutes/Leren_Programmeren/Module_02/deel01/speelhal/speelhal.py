@@ -47,4 +47,4 @@ gameprijs = gameprijs / 100
 toegang = mensen * (ticket * 100)
 VR = vrmensen * vrminuten / gameminuten * (gameprijs * 100)
 totaal = toegang+VR
-print(f"Dit dagje uit met {mensen} mensen en {vrminuten} vr minuten per persoon kost je maar {totaal} cent of {totaal} euro.")
+print(f"Dit dagje uit met {mensen} mensen en {vrminuten} vr minuten per persoon kost je maar {totaal} euro.")
