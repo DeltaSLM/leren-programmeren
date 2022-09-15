@@ -4,6 +4,11 @@ import datetime
 
 prices = {"small":7.99, "medium":9.99, "large":12.99} # Prices for the pizzas
 selected = {x.lower() : 0 for x in input("What pizzas would you like? Small, Medium, large (Separated by ',')").replace(" ", '').split(",") if x.lower() in prices.keys()} # Ask for what pizzas they want, split prices with commas and remove spaces if provided
+if selected == {}:
+    print("U kunt alleen een small, medium en/of large pizza bestellen.")
+    exit()
+
+
 orders = {} # The order list
 for size in selected:
   while not (i:= input(f"How many {size} pizzas do you want?")).isdigit(): #ask how many they want of each requested size
