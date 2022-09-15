@@ -27,19 +27,24 @@ gameminuten = int()
 try:
      mensen = int(input("Met hoeveel mensen ga je?"))
      ticket = float(input("Hoeveel euro moeten de tickets zijn?").replace(",", "."))
-     gameprijs = float(input("Hoeveel euro moet de gameseat zijn? De hoeveelheid minuten kan in de volgende vraag worden beantwoord."))
+     gameprijs = float(input("Hoeveel euro moet de gameseat zijn? De hoeveelheid minuten kan in de volgende vraag worden beantwoord.").replace(",", "."))
      gameminuten = int(input(f"Hoeveel minuten per {gameprijs} euro?"))
      vrmensen = int(input("Hoeveel van jullie gaan in de GameSeat?"))
      vrminuten = int(input("Hoeveel minuten gaat ieder persoon gemiddeld op de GameSeat?"))
-
 except:
      if ValueError:
           print("Geef alstublieft antwoord in cijfers.")
+          exit()
+
+if vrmensen > mensen:
+     print("Er kunnen niet meer mensen in de GameSeat dan dat je tickets hebt.")
+     exit()
+
+
 
 ticket = ticket / 100
 gameprijs = gameprijs / 100
 toegang = mensen * (ticket * 100)
-minuten = 5
 VR = vrmensen * vrminuten / gameminuten * (gameprijs * 100)
 totaal = toegang+VR
 print(f"Dit dagje uit met {mensen} mensen en {vrminuten} vr minuten per persoon kost je maar {totaal} cent of {totaal} euro.")
