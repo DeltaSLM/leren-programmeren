@@ -11,7 +11,7 @@ if selected == {}:
 
 orders = {} # The order list
 for size in selected:
-  while not (i:= input(f"How many {size} pizzas do you want?")).isdigit(): #ask how many they want of each requested size
+  while not (i:= input(f"Hoe veel {size} pizza's wil je?")).isdigit() or i == '0': #ask how many they want of each requested size
     pass
   selected[size] = int(i)
 
