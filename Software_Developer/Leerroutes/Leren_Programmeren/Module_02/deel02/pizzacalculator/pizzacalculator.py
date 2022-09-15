@@ -2,7 +2,7 @@
 # Pizza Calculator
 import datetime
 
-prices = {"small":1, "medium":2, "large":10} # Prices for the pizzas
+prices = {"small":7.99, "medium":9.99, "large":12.99} # Prices for the pizzas
 selected = {x.lower() : 0 for x in input("What pizzas would you like? Small, Medium, large (Separated by ',')").replace(" ", '').split(",") if x.lower() in prices.keys()} # Ask for what pizzas they want, split prices with commas and remove spaces if provided
 orders = {} # The order list
 for size in selected:
