@@ -11,3 +11,10 @@ except:
 if a > b:
     max = a
     print(f"A is het grootste getal: {max}")
+
+elif a < b:
+    min = a
+    print(f"A is het kleinste getal: {min}")
+
+else:
+    print("A en B zijn even groot")
