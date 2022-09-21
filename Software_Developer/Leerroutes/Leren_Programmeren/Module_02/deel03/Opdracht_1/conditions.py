@@ -1,5 +1,4 @@
-a = int()
-b = int()
+
 
 try:
     a = int(input("Dit programma laat zien welk cijfer van twee groter is.\nGeef alstublieft cijfer A hier door."))
