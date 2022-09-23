@@ -12,6 +12,7 @@ if iPhone >= 900 and Samsung >= 900 and zenFone >= 900:
     print("Het advies is dus geen telefoon te kopen, ze zijn te duur.")
     exit()
 
+# Kijk of de ZenFone 100 euro goedkoper is dan de anderen
 zenMinSamsung = Samsung - zenFone
 zenMinIphone = iPhone - zenFone
 
