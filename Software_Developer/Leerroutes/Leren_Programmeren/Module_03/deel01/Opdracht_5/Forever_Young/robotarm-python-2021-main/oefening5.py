@@ -1,7 +1,7 @@
 from RobotArm import RobotArm
 
 robotArm = RobotArm('exercise 5')
-robotArm.speed  = 5
+robotArm.speed  = 3
 
 # Jouw python instructies zet je vanaf hier:
 for x in range(7):
@@ -11,8 +11,9 @@ for x in range(8):
     robotArm.grab()
     robotArm.moveRight()
     robotArm.drop()
-    robotArm.moveLeft()
-    robotArm.moveLeft()
+    if x != 7:
+        robotArm.moveLeft()
+        robotArm.moveLeft()
 
 
 # Na jouw code wachten tot het sluiten van de window:
