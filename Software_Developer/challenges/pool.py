@@ -1,4 +1,16 @@
-diepte = 8*3*1.5
+global lengte
+global breedte
+global hoogte
+
+try:
+    lengte = float(input("Wat is de lengte van het zwembad?").replace(",", "."))
+    breedte = float(input("Wat is de breedte van het zwembad?").replace(",", "."))
+    hoogte = float(input("Wat is de hoogte van het zwembad?").replace(",", "."))
+except ValueError:
+    print("Geef alstublieft een nummer door.")
+
+
+diepte = lengte*breedte*hoogte
 print(diepte)
 
 uitgraven = diepte*25
