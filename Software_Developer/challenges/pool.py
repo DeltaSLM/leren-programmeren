@@ -15,7 +15,9 @@ print(diepte)
 
 uitgraven = diepte*25
 afvoeren = diepte*32.50
-voorrij = 250+(60*2.05)
+voorrij = 250+(60*2.05) if  diepte > 20 else 100+(60*2.05)
+
+m2 = lengte*breedte
 
 print(f"""
 Offerte voor een zwembad van 8 bij 3 bij 1,5 meter (inhoud {diepte:.2f} m2)
