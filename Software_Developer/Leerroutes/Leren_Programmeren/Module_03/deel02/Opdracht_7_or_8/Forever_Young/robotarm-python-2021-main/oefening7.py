@@ -1,6 +1,5 @@
 from RobotArm import RobotArm
 robotArm = RobotArm('exercise 7')
-robotArm.speed = 5
 
 for i in range(5):
     for i in range(6):
