@@ -6,4 +6,3 @@ while answer < 1000:
     toprint += "+" + str(addition) # 2
     print(toprint, "=", answer) # 3
     addition += 1 # 4
-
