@@ -5,11 +5,10 @@ global hoogte
 try:
     lengte = float(input("Wat is de lengte van het zwembad?").replace(",", "."))
     breedte = float(input("Wat is de breedte van het zwembad?").replace(",", "."))
-    hoogte = float(input("Wat is de hoogte van het zwembad?").replace(",", "."))
+    hoogte = float(input("Wat is de diepte van het zwembad?").replace(",", "."))
 except ValueError:
     print("Geef alstublieft een nummer door.")
     exit()
-
 
 diepte = lengte*breedte*hoogte
 print(diepte)
@@ -22,7 +21,7 @@ m2 = lengte*breedte
 betontegel = m2*200+m2*20 if diepte >= 20 else m2*250+m2*25
 
 print(f"""
-Offerte voor een zwembad van 8 bij 3 bij 1,5 meter (inhoud {diepte:.2f} m2)
+Offerte voor een zwembad van {lengte} bij {breedte} bij {hoogte} meter (inhoud {diepte:.2f} m2)
 Uitgraven:                     {uitgraven:.2f}
 Afvoeren grond:          {afvoeren:.2f}
 Voorrijkosten:              {voorrij}
