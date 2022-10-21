@@ -11,7 +11,7 @@ returnedCoins = []
 returnedValue = []
 
 if change > 0:  # condition to check if there is change to be returned (more than 0)
-    coinValue = 50  # Sets the value of variable coinValue to 50
+    coinValue = 500  # Sets the value of variable coinValue to 50
 
     while change > 0 and coinValue > 0:  # loops if change is more than 0 and coinvalue is also more than 0
         nrCoins = change // coinValue  # Divides change with coinvalue and rounds it down to the nearest full number
