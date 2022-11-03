@@ -42,14 +42,14 @@ async def main():
     if username == "Random":
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get("https://randomuser.me/api2/") as response:
+                async with session.get("https://randomuser.me/api/") as response:
                     firstname = await response.json()
                     print("Welcome {}. Enjoy the game.".format(firstname['results'][0]['name']['first']))
                     global name
                     name = firstname['results'][0]['name']['first']
         except BaseException as error:
             print("API not found")
-            name = ""
+            name = "Yata"
     else:
         print("Welcome {}. Enjoy the game.".format(username))
         name = username
