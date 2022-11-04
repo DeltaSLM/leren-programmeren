@@ -1,8 +1,5 @@
-#firstAnswer = print("Please provide the first letter of your first name").lower()
-firstanswer = input("Please provide the letter of your first name").lower()
-#secondAnswer = input("Please provide the first letter of your last name").lower()
-secondAnswer = input("Please provide the letter of your last name").lower()
-
+firstAnswer = print("Please provide the first letter of your first name").lower()
+secondAnswer = input("Please provide the first letter of your last name").lower()
 
 firstLetters = [
     "a": "cute",
