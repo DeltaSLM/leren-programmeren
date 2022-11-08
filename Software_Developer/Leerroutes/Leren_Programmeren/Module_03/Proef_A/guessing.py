@@ -5,7 +5,7 @@ score = 0
 rounds = 1
 
 def guesser(question):
-    #print("number ", number)  # uncomment this for debugging
+    print("number ", number)  # uncomment this for debugging
     global guess
     while not (guess := input(question)).isdigit():
         if guess == "stop":
@@ -14,7 +14,7 @@ def guesser(question):
         print("--- You need to provide us with a number between 1 and 1000 or \"stop\" to stop ---")
     #print(guess)
 
-    if guess == str(number):
+    if int(guess) == number:
         return True
 
     else:
