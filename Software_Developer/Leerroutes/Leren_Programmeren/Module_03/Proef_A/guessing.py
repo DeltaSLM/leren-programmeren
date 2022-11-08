@@ -56,15 +56,21 @@ for x in range(20):
 
             else:
                 sum = number - int(guess)
+                if sum < 0:
+                    sum = sum * -1
 
-                if sum > 50:
-                    print("Guess higher")
-                elif sum < -50:
-                    print("Guess lower")
-                elif sum > 20 and sum < 50 or sum < -20 and sum > -50:
-                    print("Getting warm...")
-                elif sum < 20 or sum > -20:
-                    print("Getting very warm...")
+                if number > int(guess) and number - int(guess) > 50:
+                    print("Guess higher.")
+                elif int(guess) > number and int(guess) - number > 50:
+                    print("Guess lower.")
+                elif number > int(guess) and number - int(guess) < 50 and number - int(guess) > 20:
+                    print("Getting warm, guess higher..")
+                elif int(guess) > number and int(guess) - number < 50 and int(guess) - number >  20:
+                    print("Getting warm, guess lower..")
+                elif number > int(guess) and number - int(guess) < 20:
+                    print("Getting very warm, guess higher.")
+                elif int(guess) > number and int(guess) - number < 20:
+                    print("Getting very warm, guess lower.")
 
                 guesses -= 1
         rounds += 1
