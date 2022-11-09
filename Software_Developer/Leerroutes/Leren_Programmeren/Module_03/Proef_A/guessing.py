@@ -3,14 +3,16 @@ import random
 anotherRound = ""
 score = 0
 rounds = 1
-
-def guesser(question):
+# Functie is;
+# Controleren of het getal geraden is
+# -- Check only the input
+def guesser(question: str) -> bool:
     print("number ", number)  # uncomment this for debugging
-    global guess
+    global guess # dont use global
     while not (guess := input(question)).isdigit():
         if guess == "stop":
             print("Exiting game with a score of {}, we're sad to see you go.".format(score))
-            exit()
+            exit() # dont exit in functions
         print("--- You need to provide us with a number between 1 and 1000 or \"stop\" to stop ---")
     #print(guess)
 
@@ -21,14 +23,14 @@ def guesser(question):
         return False
 
 for x in range(20):
-    if x != 0:
+    if x != 0: # put at the bottom
         while not (anotherRound == "y" or anotherRound == "n"):
             anotherRound = input("Do you want to play another round? Y/N").lower()
 
         if anotherRound == "n":
             print("Got it, aborting game.")
             break
-        elif anotherRound == "y":
+        if anotherRound == "y":
             print("You are currently on round {} with score {}.".format(rounds, score))
             pass
     number = random.randint(1, 1000)  # The number that has to be guessed
