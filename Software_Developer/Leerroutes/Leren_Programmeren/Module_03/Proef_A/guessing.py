@@ -12,7 +12,7 @@ userGuess = ""
 
 while rounds != 20:
     numbergen = random.randint(1, 1000)  # Number generation
-    print(numbergen)  # DEBUGGING
+    # print(numbergen)  # DEBUGGING
     while not ((userAnswer := input(f"Please provide us with a number between 1 to 1000 or 'stop' to stop..\n-- You are currently on round {rounds} with score {score} --\nAnswer here: ")).isdigit() and 1 <= int(userAnswer) <= 1000):
         if userAnswer.lower() == "stop":
             exit(f"We are sad to see you go, you ended with {score} points in {rounds} rounds")
@@ -24,7 +24,7 @@ while rounds != 20:
 
     else:
         while guesses != 0:
-            print(numbergen)  # DEBUGGING
+            # print(numbergen)  # DEBUGGING
             while not ((userGuess := input("WRONG: Try again or 'stop' to stop, you have {} guesses left.".format(guesses))).isdigit() and 1 <= int(userGuess) <= 1000):
                 if userGuess.lower() == "stop":
                     exit(f"We are sad to see you go, you ended with {score} points in {rounds} rounds")
