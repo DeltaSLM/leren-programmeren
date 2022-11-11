@@ -1,80 +1,60 @@
 import random
 
-anotherRound = ""
+# Variables for the 20 rounds
+rounds = 0
 score = 0
-rounds = 1
-# Functie is;
-# Controleren of het getal geraden is
-# -- Check only the input
-def guesser(question: str) -> bool:
-    print("number ", number)  # uncomment this for debugging
-    global guess # dont use global
-    while not (guess := input(question)).isdigit():
-        if guess == "stop":
-            print("Exiting game with a score of {}, we're sad to see you go.".format(score))
-            exit() # dont exit in functions
-        print("--- You need to provide us with a number between 1 and 1000 or \"stop\" to stop ---")
-    #print(guess)
+userAnswer = ""
+newRound = ""
 
-    if int(guess) == number:
-        return True
+# Variables for the 10 guess rounds
+guesses = 10
+userGuess = ""
 
-    else:
-        return False
+while rounds != 20:
+    numbergen = random.randint(1, 1000)  # Number generation
+    print(numbergen)  # DEBUGGING
+    while not ((userAnswer := input(f"Please provide us with a number between 1 to 1000 or 'stop' to stop..\n-- You are currently on round {rounds} with score {score} --\nAnswer here: ")).isdigit() and 1 <= int(userAnswer) <= 1000):
+        if userAnswer.lower() == "stop":
+            exit(f"We are sad to see you go, you ended with {score} points in {rounds} rounds")
+        print("------------------------------------------------------------------")
 
-for x in range(20):
-    if x != 0: # put at the bottom
-        while not (anotherRound == "y" or anotherRound == "n"):
-            anotherRound = input("Do you want to play another round? Y/N").lower()
-
-        if anotherRound == "n":
-            print("Got it, aborting game.")
-            break
-        if anotherRound == "y":
-            print("You are currently on round {} with score {}.".format(rounds, score))
-            pass
-    number = random.randint(1, 1000)  # The number that has to be guessed
-
-    if guesser("Guess a number between 1 to 1000") == True:
-        score += 1
+    if int(userAnswer) == numbergen:
         rounds += 1
-        if x != 20:
-            print("You guessed correctly! Moving onto round {} with score {}".format(rounds, score))
+        score += 1
 
     else:
-        guesses = 10
-        for x in range(10):
-            if x == 10:
-                print("You have failed to guess correctly, moving onto round {} with score {}".format(rounds, score))
-                break
-            #if number - guess > 50:
-                #print("Guess higher")
+        while guesses != 0:
+            print(numbergen)  # DEBUGGING
+            while not ((userGuess := input("WRONG: Try again or 'stop' to stop, you have {} guesses left.".format(guesses))).isdigit() and 1 <= int(userGuess) <= 1000):
+                if userGuess.lower() == "stop":
+                    exit(f"We are sad to see you go, you ended with {score} points in {rounds} rounds")
+                print("!!! Please provide us with a number between 1 to 1000 !!!")
 
-            if guesser("Please guess again. You have {} guesses left.".format(guesses)) == True:
-                score += 1
+            userGuess = int(userGuess)
+
+            if userGuess == numbergen:
+                guesses = 0
                 rounds += 1
-                print("You guessed correctly! Moving onto round {} with score {}".format(rounds, score))
-                break
+                score += 1
 
             else:
-                sum = number - int(guess)
-                if sum < 0:
-                    sum = sum * -1
+                guesses -= 1
 
-                if number > int(guess) and number - int(guess) > 50:
+                if numbergen > userGuess and numbergen - userGuess > 50:
                     print("Guess higher.")
-                elif int(guess) > number and int(guess) - number > 50:
+                elif userGuess > numbergen and userGuess - numbergen > 50:
                     print("Guess lower.")
-                elif number > int(guess) and number - int(guess) < 50 and number - int(guess) > 20:
+                elif numbergen > userGuess and 50 > numbergen - userGuess > 20:
                     print("Getting warm, guess higher..")
-                elif int(guess) > number and int(guess) - number < 50 and int(guess) - number >  20:
+                elif userGuess > numbergen and 50 > userGuess - numbergen > 20:
                     print("Getting warm, guess lower..")
-                elif number > int(guess) and number - int(guess) < 20:
+                elif numbergen > userGuess and numbergen - userGuess < 20:
                     print("Getting very warm, guess higher.")
-                elif int(guess) > number and int(guess) - number < 20:
+                elif userGuess > numbergen and userGuess - numbergen < 20:
                     print("Getting very warm, guess lower.")
 
-                guesses -= 1
-        rounds += 1
+    newRound = input("Want to play another round? Y/YES/N/NO | The game will automatically continue if other arguments are given.").lower()
+    if newRound == "n" or newRound == "no":
+        break
 
-print("Congratulations! You have finished the game with a score of {}".format(score))
+print(f"{'We are sad to see you go.' if newRound == 'n' or newRound == 'no' else 'Congratulations on beating the game!'} You ended on {score} points in {rounds} rounds!")
