@@ -1,8 +1,10 @@
 import random
 
-MnMcolors = ['red', 'green', 'geel', 'pink', 'blue']
-randomized = random.sample(MnMcolors, random.randint(1, 5))
+while not (answer := input("How many m&m's do you want in the bag?")).isdigit():
+    print("Provide a number, dumbass")
 
+MnMcolors = ['red', 'green', 'yellow', 'brown', 'blue']
+randomized = random.sample(MnMcolors, random.randint(1, 5))
 
 def decomposition(i, x):
     # need help here
@@ -11,10 +13,13 @@ def decomposition(i, x):
     return map(round, res)
 
 
-rand_numbers = list(decomposition(200, len(randomized)))
+rand_numbers = list(decomposition(int(answer), len(randomized)))
 print(rand_numbers)
 thedict = {}
 for num, color in enumerate(randomized):
     thedict[color] = rand_numbers[num]
 
 print(thedict)
+
+for x in thedict:
+    print(x.capitalize(), ":", thedict[x])
