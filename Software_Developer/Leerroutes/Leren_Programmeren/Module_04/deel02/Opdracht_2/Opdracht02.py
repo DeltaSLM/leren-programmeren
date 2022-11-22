@@ -1,3 +1,3 @@
 from fruitmand import fruitmand
 
-print(len(fruitmand))
+print("Totaal aantal fruit: ", len(fruitmand))
