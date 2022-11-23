@@ -1,3 +1,5 @@
 from fruitmand import fruitmand
 
-print("The apple weighs " + str(fruitmand[1]['weight']) + "g")
+for idx, dictionary in enumerate(fruitmand):
+    if dictionary['name'] == "appel":
+        print("The apple weighs " + str(dictionary['weight']) + "g")
