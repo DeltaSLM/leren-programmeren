@@ -1,0 +1,28 @@
+Als namen niet letters is:
+    zeg "Graag een echte naam opgeven." en herhaal
+
+
+Als naam al is opgeslagen:
+    zeg "Deze naam was al opgegeven"
+    vraag opnieuw voor een naam
+
+Als namen minder dan drie:
+    herhaal vraag
+
+Anders:
+voeg naam toe aan lijst
+
+    Vraag ofdat gebruiker meer namen op wilt geven
+
+    Als meer namen ja is:
+        vraag voor meer namen
+
+
+    Als meer namen nee is:
+        Schud namen door elkaar
+        voeg namen samen toe
+
+        als naam zichzelf heeft:
+        schud namen opnnieuw door elkaar
+
+zeg naam en lootje
