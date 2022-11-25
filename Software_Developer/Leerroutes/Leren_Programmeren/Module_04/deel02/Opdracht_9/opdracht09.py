@@ -2,9 +2,9 @@ from fruitmand import fruitmand
 
 colors = []
 
-for idx, dictionary in enumerate(fruitmand):
-    if dictionary['name'] == "druif":
-        fruitmand.pop(idx)
+for fruit in fruitmand:
+    if fruit['name'] == 'druif':
+        fruitmand.remove(fruit)
 
 for x in fruitmand:
     if x['color'] not in colors:
