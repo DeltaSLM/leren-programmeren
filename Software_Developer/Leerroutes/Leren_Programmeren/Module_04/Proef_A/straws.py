@@ -1,42 +1,42 @@
 import random
 
-giveNames = True
-booleaned = ""
-original = []
-straws = {}
-gifted = []
+moreNames = True
+giveNames = ""
 
-while giveNames == True:
+gelijk = True
+names = []
+lijst = []
+check = 0
+straws = {}
+
+while moreNames:
     while not (inputName := input("Please provide a name to add to the.")).isalpha():
         print("Letters only, no spaces.")
 
-    if inputName not in original:
-        original.append(inputName)
-    else:
-        pass
+    if inputName not in names:
+        names.append(inputName)
+        lijst.append(inputName)
 
-    if len(original) >= 3:
-        while not (booleaned == "y" or booleaned == "n"):
-            booleaned = input("Do you want to give up more names? Y/N")
+    if len(names) >= 3:
+        while not (giveNames == "y" or giveNames == "n"):
+            giveNames = input("Do you want to give up more names? Y/N").lower()
 
-        if booleaned == "n":
-            giveNames = False
+        if giveNames == "n":
+            moreNames = False
         else:
-            booleaned = ""
+            giveNames = ""
 
+while check != len(names):
+    check = 0
+    for x in range(0, len(names)):
+        if names[x] == lijst[x]:
+            random.shuffle(lijst)
+            print("shuffled")
+        else:
+            check += 1
 
-for name in original:
-    assignee = random.choice(original)
+print(names)
+print(lijst)
 
-    while (assignee == name) or (name in straws) or (assignee in gifted):
-        assignee = random.choice(original)
-
-    straws[name] = assignee
-    gifted.append(assignee)
-
-print(original)
-
-print(straws)
-
-for (gifter, gifted) in straws.items():
-    print(f"{gifter} has pulled {gifted}'s straw.")
+for x in range(0, len(names)):
+  print(f"{names[x]} heeft {lijst[x]}")
