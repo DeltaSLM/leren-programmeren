@@ -28,3 +28,7 @@ Wedstrijd {dictKeys[0].upper()} - {dictKeys[1].upper()} eindigde in {results[dic
 {dictKeys[1].upper()}: punten {results[dictKeys[1]]}; doelsaldo: {int(results[dictKeys[1]]) - int(results[dictKeys[0]])}
 {dictKeys[2].upper()}: punten {results[dictKeys[2]]}; doelsaldo: {int(results[dictKeys[2]]) - int(results[dictKeys[2]])}
 """)
+
+while inputloop != 3:
+    while not (score2 := input("What is the score in round 2?")).isdigit():
+        print("Scores work in digits bud.")
