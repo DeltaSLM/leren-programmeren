@@ -1,36 +1,22 @@
-answer = ""
+import functions
 
-def addition(number1 : int, number2 : int) -> str:
-    answer = f"{number1} + {number2} = {number1+number2}"
-    return answer
-
-def subtraction(number1 : int, number2 : int) -> str:
-    return ""
-
-def multiplication(number1 : int, number2 : int) -> str:
-    return ""
-
-def division(number1 : int, number2 : int) -> str:
-    return ""
-
-def increase(number1: int) -> str:
-    return ""
-
-def decrease(number1: int) -> str:
-    return ""
-
-def double(number1: int) -> str:
-    return ""
-
-def half(number1: int) -> str:
-    return ""
-
+# variables
 choice = ""
-n2 = int
+symbol = ""
+execute = ""
+noquit = True
+n1 = float
+n2 = float
 
-while not (choice == "a" or choice == "b" or choice == "c" or choice == "d" or choice == "e" or choice == "f" or choice == "g" or choice == "h"):
-    choice = input("""
-Wat wilt u doen?
+while noquit:
+    while not (choice == "a" or choice == "b" or choice == "c" or choice == "d" or choice == "e" or choice == "f" or choice == "g" or choice == "h"):
+        if choice == "i":
+            print("Stoppen...")
+            noquit = False
+
+
+        choice = input(f"""
+{"wat wilt u doen" if not n1 else "Wat wilt u met de uitkomst doen?"}
 A) getallen optellen
 B) getallen aftrekken
 C) getallen vermenigvuldigen
@@ -39,33 +25,53 @@ E) getal ophogen
 F) getal verlagen
 G) getal verdubbelen
 H) getal halveren
-""").lower()
+{"I) niets" if n1 else ""}
+Kies: """).lower()
 
-while not (n1 := input("Wat is het eerste nummer?")).isdigit():
-    print("NUMMER alstublieft.")
-n1 = int(n1)
+    if not n1:
+        try:
+            n1 = float(input("Wat is het eerste getal?"))
+        except ValueError:
+            print("We hebben een getal (optioneel met decimalen) nodig.")
 
-if choice == "a" or choice == "b" or choice == "c" or choice == "d":
-    while not (n2 := input("Wat is het tweede nummer?")).isdigit():
-        print("NUMMER alstublieft.")
-    n2 = int(n2)
+    if choice != "e" and choice != "f" and choice != "g" and choice != "h":
+        try:
+            n2 = float(input("Wat is het tweede getal?"))
+        except ValueError:
+            print("We hebben een getal (optioneel met decimalen) nodig.")
 
-def type():
+    elif choice == "e" or choice == "f":
+        n2 = 1
+    else:
+        n2 = 2
+
     if choice == "a":
-        addition(n1, n2)
+        execute = functions.addition(n1, n2)
+        symbol = "+"
     elif choice == "b":
-        subtraction(n1, n2)
+        execute = functions.subtraction(n1, n2)
+        symbol = "-"
     elif choice == "c":
-        multiplication(n1, n2)
+        execute = functions.multiplication(n1, n2)
+        symbol = "*"
     elif choice == "d":
-        division(n1, n2)
+        execute = functions.division(n1, n2)
+        symbol = "/"
     elif choice == "e":
-        increase(n1)
+        execute = functions.addition(n1, n2)
+        symbol = "+"
     elif choice == "f":
-        decrease(n1)
+        execute = functions.subtraction(n1, n2)
+        symbol = "-"
     elif choice == "g":
-        double(n1)
+        execute = functions.multiplication(n1, n2)
+        symbol = "*"
     elif choice == "h":
-        half(n1)
+        execute = functions.division(n1, n2)
+        symbol = "/"
 
-print(type())
+    answer = execute
+
+    print(f"{n1} {symbol} {n2} = {answer}")
+    n1 = answer
+    choice = ""
