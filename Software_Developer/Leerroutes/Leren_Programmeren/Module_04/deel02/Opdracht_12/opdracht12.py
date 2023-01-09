@@ -8,7 +8,6 @@ def translation(fruitColor: str) -> str:
     else:
         return fruitColor
 
-length = []
 lengthnr = []
 
 for x in fruitmand:
