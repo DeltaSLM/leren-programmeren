@@ -32,7 +32,6 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
     gold = copper2gold(copperCosts)
     copperCosts = JOURNEY_IN_DAYS * (horses * COST_FOOD_HORSE_COPPER_PER_DAY)
     gold += copper2gold(copperCosts)
-    print(gold)
     return round(gold, 2)
 
 ##################### M04.D02.O5 #####################
