@@ -2,7 +2,7 @@ import math
 import time
 from termcolor import colored
 from data import JOURNEY_IN_DAYS, COST_FOOD_HORSE_COPPER_PER_DAY, COST_FOOD_HUMAN_COPPER_PER_DAY, \
-    COST_TENT_GOLD_PER_WEEK, COST_HORSE_SILVER_PER_DAY
+    COST_TENT_GOLD_PER_WEEK, COST_HORSE_SILVER_PER_DAY, COST_INN_HORSE_COPPER_PER_NIGHT, COST_INN_HUMAN_SILVER_PER_NIGHT
 
 
 ##################### M04.D02.O2 #####################
@@ -112,7 +112,7 @@ def getItemsValueInGold(items: list) -> float:
         elif pricetype == 'platinum':
             value += amount * platinum2gold(price)
         else:
-            value += price
+            value += amount * price
     return value
 
 
@@ -130,21 +130,41 @@ def getCashInGoldFromPeople(people: list) -> float:
 ##################### M04.D02.O9 #####################
 
 def getInterestingInvestors(investors: list) -> list:
-    pass
-
+    interestingInvestor = []
+    for investor in investors:
+        if investor['profitReturn'] < 10:
+            interestingInvestor.append(investor)
+    return interestingInvestor
 
 def getAdventuringInvestors(investors: list) -> list:
-    pass
+    investors = getInterestingInvestors(investors)
+    adventuringInvestor = []
+    for investor in investors:
+        if investor['adventuring']:
+            adventuringInvestor.append(investor)
+    return adventuringInvestor
 
 
 def getTotalInvestorsCosts(investors: list, gear: list) -> float:
-    pass
 
+    gold = 0
+    investors = getAdventuringInvestors(investors)
+    for investor in range(len(investors)):
+        gold += getItemsValueInGold(gear)
+        #print("itemsvalueingold: ", getItemsValueInGold(gear))
+    gold += getJourneyFoodCostsInGold(len(investors), len(investors))
+    gold += getTotalRentalCost(len(investors), len(investors))
+    # print("totalrentalcost: ", getTotalRentalCost(len(investors), len(investors)))
+    # print("journeyfoodcosts: ", getJourneyFoodCostsInGold(len(investors), len(investors)))
+    print(gold)
+    return gold
 
 ##################### M04.D02.O10 #####################
 
 def getMaxAmountOfNightsInInn(leftoverGold: float, people: int, horses: int) -> int:
-    pass
+    humanCost = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT) * people
+    horseCost = copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT) * horses
+    return int(leftoverGold/(horseCost+humanCost))
 
 
 def getJourneyInnCostsInGold(nightsInInn: int, people: int, horses: int) -> float:
@@ -158,13 +178,13 @@ def getInvestorsCuts(profitGold: float, investors: list) -> list:
 
 
 def getAdventurerCut(profitGold: float, investorsCuts: list, fellowship: list) -> float:
-    pass
+    pass # fellowship moet je alleen de hoeveelheid mensen berekenen, tenzij in testen veranderd
 
 
 ##################### M04.D02.O13 #####################
 
 def getEarnigs(profitGold: float, mainCharacter: dict, friends: list, investors: list) -> list:
-    pass
+    pass #
 
 
 ##################### view functions #####################
