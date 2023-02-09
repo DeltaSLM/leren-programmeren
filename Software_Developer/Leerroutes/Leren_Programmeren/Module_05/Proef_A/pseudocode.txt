@@ -1,0 +1,25 @@
+zeg "Welkom bij Papi Gelato, je mag alle smaken kiezen zolang het maar vanille ijs is."
+
+terwijl bestelling True is:
+    terwijl antwoord meer dan 8 is of antwoord is geen nummer zeg "sorry, dat snap ik niet" en herhaal:
+        vraag hoeveel bolletjes de klant wil
+
+    als antwoord 3 of minder is:
+        als antwoord niet "hoorntje" of "bakje" is zeg "sorry dat snap ik niet" en herhaal:
+            vraag aan gebruiker of hij "hoorntje" of "bakje" wilt:
+
+    als antwoord 4 of meer en 8 of minder is:
+        Zeg "dan krijgt u van mij een bakje met aantal bolletjes"
+
+    zeg "Hier is uw hoorntje/bakje met aantal bolletjes"
+
+    terwijl antwoord niet ja of nee is zeg "Sorry dat snap ik niet" en herhaal:
+        vraag of de klant nog meer wilt bestellen
+
+    als antwoord ja is:
+        zet alle vragen op nul
+
+    als antwoord nee is:
+        zet bestelling op False
+        zeg "Bedankt en tot ziens!"
+
