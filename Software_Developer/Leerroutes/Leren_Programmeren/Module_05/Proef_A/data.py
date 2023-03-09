@@ -57,4 +57,4 @@ prices = [{
 
 ordering = True
 totalPrice = 0
-btwNumber = 9
+btwNumber = 6
