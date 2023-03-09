@@ -1,22 +1,17 @@
 prices = [{
     'name': 'Aardbei',
     'label': 'B Aardbei',
-    'price': 1.10,
+    'price': 0.95,
     'totalAmount': 0
 }, {
     'name': 'Chocolade',
     'label': 'B Chocolade',
-    'price': 1.10,
-    'totalAmount': 0
-}, {
-    'name': 'Munt',
-    'label': 'B Munt',
-    'price': 1.10,
+    'price': 0.95,
     'totalAmount': 0
 }, {
     'name': 'Vanille',
     'label': 'B Vanille',
-    'price': 1.10,
+    'price': 0.95,
     'totalAmount': 0
 }, {
     'name': 'hoorntje',
@@ -51,11 +46,6 @@ prices = [{
 }, {
     'name': 'L.Chocolade',
     'label': 'L. Chocolade',
-    'price': 9.80,
-    'totalAmount': 0
-}, {
-    'name': 'L.Munt',
-    'label': 'L. Munt',
     'price': 9.80,
     'totalAmount': 0
 }, {
