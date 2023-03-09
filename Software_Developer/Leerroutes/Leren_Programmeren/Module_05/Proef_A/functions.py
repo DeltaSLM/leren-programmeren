@@ -1,4 +1,4 @@
-def integerInput(prompt : str) -> int:
+def integerInput(prompt: str) -> int:
     while True:
         inputAmount = input(prompt)
         try:
@@ -7,7 +7,8 @@ def integerInput(prompt : str) -> int:
         except ValueError:
             print('Sorry, dit herken ik niet!')
 
-def askUser(prompt : str, data : list) -> str:
+
+def askUser(prompt: str, data: list) -> str:
     while True:
         inputQuestion = input(prompt).lower()
         if inputQuestion in data:
@@ -15,7 +16,9 @@ def askUser(prompt : str, data : list) -> str:
         else:
             print('Sorry, dit herken ik niet!')
 
-def changeVariables(list : list, providedType : str, iceCreamReceived : str, iceCreamTopping : str, skipTables : bool) -> list:
+
+def changeVariables(list: list, providedType: str, iceCreamReceived: str, iceCreamTopping: str,
+                    skipTables: bool) -> list:
     for price in list:
         if price['name'] == providedType:
             if skipTables:
@@ -32,14 +35,23 @@ def changeVariables(list : list, providedType : str, iceCreamReceived : str, ice
             price['totalAmount'] = round(price['totalAmount'] + 1, 2)
     return list
 
-def checkBill(list : list) -> list:
+
+def changeVariablesLiter(list: list, iceCreamReceived: str) -> list:
+    for price in list:
+        if price['name'] == iceCreamReceived:
+            price['totalAmount'] = round(price['totalAmount'] + 1, 2)
+    return list
+
+
+def checkBill(list: list) -> list:
     emptyList = []
     for price in list:
         if price['totalAmount'] >= 1:
             emptyList.append(price['name'])
     return emptyList
 
-def receiveBillData(originalData : list, deliveredData : list) -> list:
+
+def receiveBillData(originalData: list, deliveredData: list) -> list:
     emptyList = []
     for item in originalData:
         if item['name'] in deliveredData:
@@ -52,7 +64,8 @@ def receiveBillData(originalData : list, deliveredData : list) -> list:
             emptyList.append(data)
     return emptyList
 
-def receivedIceCream(item : str) -> str:
+
+def receivedIceCream(item: str) -> str:
     if item == 'a':
         return 'Aardbei'
     elif item == 'c':
@@ -62,7 +75,8 @@ def receivedIceCream(item : str) -> str:
     elif item == 'v':
         return 'Vanille'
 
-def receivedIceCreamTopping(item : str) -> str:
+
+def receivedIceCreamTopping(item: str) -> str:
     if item == 'a':
         return 'Geen'
     elif item == 'b':
@@ -71,3 +85,14 @@ def receivedIceCreamTopping(item : str) -> str:
         return 'Sprinkels'
     elif item == 'd':
         return 'Caramel Saus'
+
+
+def receivedIceCreamLiter(item: str) -> str:
+    if item == 'a':
+        return 'L.Aardbei'
+    elif item == 'c':
+        return 'L.Chocolade'
+    elif item == 'm':
+        return 'L.Munt'
+    elif item == 'v':
+        return 'L.Vanille'
