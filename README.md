@@ -2,5 +2,4 @@
 Veel te lekker.
 
 ## vandaag doen:
-- javascript cjv afchecken
-- ??? Python meesterproef voorbereiden blijkbaar
+- packet tracer opdracht
